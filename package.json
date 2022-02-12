@@ -1,0 +1,20 @@
+{
+  "name": "livegollection-client",
+  "version": "0.0.1",
+  "description": "livegollection-client is the JavaScript client-side library to interact with the correspondant server-side Golang library livegollection that you can find on GitHub at m1gwings/livegollection .",
+  "browser": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m1gwings/livegollection-client.git"
+  },
+  "author": "Cristiano Migali",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m1gwings/livegollection-client/issues"
+  },
+  "homepage": "https://github.com/m1gwings/livegollection-client#readme"
+}
