@@ -119,7 +119,7 @@ export default class LiveGollection<ItemType extends { id?: string }> {
 
     /**
      * Deletes the item from the livegollection: first the item in the server collection will be deleted,
-     * then every client in the pool (also the one that has called this function) will received
+     * then every client in the pool (also the one that has called this function) will receive
      * a delete event (ondelete function will be invoked).
      * 
      * @remarks
@@ -173,7 +173,7 @@ export default class LiveGollection<ItemType extends { id?: string }> {
      * server regarding the update of an item already in the livegollection. Set an appropriate handler
      * to modify the item in your local collection and update the view.
      * 
-     * @param item - An item alreaday in the livegollection that has been modified.
+     * @param item - An item alreaday in the livegollection that has been modified
      */
     public onupdate = (item: ItemType) => {
         return
@@ -184,7 +184,7 @@ export default class LiveGollection<ItemType extends { id?: string }> {
      * server regarding the deletion of an item in the livegollection. Set an appropriate handler
      * to delete the item from your local collection and update the view.
      * 
-     * @param item - An item in the livegollection that has been deleted.
+     * @param item - An item in the livegollection that has been deleted
      */
     public ondelete = (item: ItemType) => {
         return
