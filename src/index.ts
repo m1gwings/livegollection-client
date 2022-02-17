@@ -209,10 +209,10 @@ export default class LiveGollection<IdType, ItemType extends { id?: IdType }> {
     public set oncreate(handler: (item: ItemType) => void) {
         this._oncreate = handler
         if (!this.isOnCreateSet && this.isOnUpdateSet && this.isOnDeleteSet) {
-            this.isOnCreateSet = true
             this.cachedReceivedUpdates.forEach(updMess => this.processUpdate(updMess))
             this.cachedReceivedUpdates = []
         }
+        this.isOnCreateSet = true
     }
 
     /**
@@ -225,10 +225,10 @@ export default class LiveGollection<IdType, ItemType extends { id?: IdType }> {
     public set onupdate(handler: (item: ItemType) => void) {
         this._onupdate = handler
         if (this.isOnCreateSet && !this.isOnUpdateSet && this.isOnDeleteSet) {
-            this.isOnUpdateSet = true
             this.cachedReceivedUpdates.forEach(updMess => this.processUpdate(updMess))
             this.cachedReceivedUpdates = []
         }
+        this.isOnUpdateSet = true
     }
 
     /**
@@ -241,10 +241,10 @@ export default class LiveGollection<IdType, ItemType extends { id?: IdType }> {
     public set ondelete(handler: (item: ItemType) => void) {
         this._ondelete = handler
         if (this.isOnCreateSet && this.isOnUpdateSet && !this.isOnDeleteSet) {
-            this.isOnDeleteSet = true
             this.cachedReceivedUpdates.forEach(updMess => this.processUpdate(updMess))
             this.cachedReceivedUpdates = []
         }
+        this.isOnDeleteSet = true
     }
 
     /**
