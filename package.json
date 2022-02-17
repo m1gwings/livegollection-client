@@ -1,6 +1,6 @@
 {
   "name": "livegollection-client",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "livegollection-client is the JavaScript client-side library to interact with the correspondant server-side Golang library livegollection that you can find on GitHub at m1gwings/livegollection .",
   "browser": "dist/index.js",
   "types": "dist/index.d.ts",
