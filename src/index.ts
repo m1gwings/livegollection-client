@@ -64,7 +64,12 @@ export default class LiveGollection<IdType, ItemType extends { id?: IdType }> {
     private isOnCloseSet: boolean = false
 
     /**
-     * @param url - route to the livegollection server-side websocket handler.
+     * @remarks
+     * 
+     * If you want to connect to a remote server you must use TLS (and wss:// in the URL protocol field).
+     * ws:// is OK only if you are testing in local.
+     * 
+     * @param url - route to the livegollection server-side websocket handler, for example "ws://localhost:8080/livegollection"
      */
     constructor(
         private url: string
@@ -204,6 +209,10 @@ export default class LiveGollection<IdType, ItemType extends { id?: IdType }> {
      * server regarding the creation of a new item. Set an appropriate handler to add the new item
      * to your local collection and update the view.
      * 
+     * @remarks
+     * 
+     * You also must set onupdate and ondelete event handlers otherwise NO update will be processed (neither CREATE updates). 
+     * 
      * @param item - The NEW item added to the livegollection
      */
     public set oncreate(handler: (item: ItemType) => void) {
@@ -220,6 +229,10 @@ export default class LiveGollection<IdType, ItemType extends { id?: IdType }> {
      * server regarding the update of an item already in the livegollection. Set an appropriate handler
      * to modify the item in your local collection and update the view.
      * 
+     * @remarks
+     * 
+     * You also must set oncreate and ondelete event handlers otherwise NO update will be processed (neither UPDATE updates).
+     * 
      * @param item - An item alreaday in the livegollection that has been modified
      */
     public set onupdate(handler: (item: ItemType) => void) {
@@ -235,6 +248,10 @@ export default class LiveGollection<IdType, ItemType extends { id?: IdType }> {
      * This event handler will be invoked when the client receives an update message from the
      * server regarding the deletion of an item in the livegollection. Set an appropriate handler
      * to delete the item from your local collection and update the view.
+     * 
+     * @remarks
+     * 
+     * You also must set oncreate and onupdate event handlers otherwise NO update will be processed (neither DELETE updates).
      * 
      * @param item - An item in the livegollection that has been deleted
      */
